@@ -1,8 +1,16 @@
 package com.flearn.server.models.topics;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "topics")
 public class Topic {
+
+    @Id
     private String id;
+    @Column
     private String name;
+    @Column
     private String description;
 
     public Topic() {
