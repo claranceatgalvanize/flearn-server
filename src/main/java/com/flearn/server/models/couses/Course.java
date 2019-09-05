@@ -1,10 +1,12 @@
-package com.flearn.server.models.topics;
+package com.flearn.server.models.couses;
+
+import com.flearn.server.models.topics.Topic;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "topics")
-public class Topic {
+@Table(name = "courses")
+public class Course {
 
     @Id
     private String id;
@@ -12,14 +14,26 @@ public class Topic {
     private String name;
     @Column(length=10485760)
     private String description;
+    @ManyToOne
+    private Topic topic;
 
-    public Topic() {
+    public Course() {
     }
 
-    public Topic(String id, String name, String description) {
+    public Course(String id, String name, String description, String topicId) {
+        super();
         this.id = id;
         this.name = name;
         this.description = description;
+        this.topic = new Topic(topicId, "", "");
+    }
+
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 
     public String getId() {
