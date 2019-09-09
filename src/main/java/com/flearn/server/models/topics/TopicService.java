@@ -16,7 +16,7 @@ public class TopicService {
     public List<Topic> getAllTopics() {
         List<Topic> topics = new ArrayList<>();
         topicRepository.findAll()
-        .forEach(topics::add);
+                .forEach(topics::add);
         return topics;
     }
 
